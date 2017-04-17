@@ -65,8 +65,9 @@ def update_script(script_filename, new_path):
     if not args:
         return
 
-    if not args[0].endswith('/bin/python') or \
-       '/usr/bin/env python' in args[0]:
+    if not (args[0].endswith('/bin/python') or
+        args[0].endswith('/bin/python2.7') or
+       '/usr/bin/env python' in args[0]):
         return
 
     new_bin = os.path.join(new_path, 'bin', 'python')
